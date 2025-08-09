@@ -1,15 +1,12 @@
-// src/components/route-protect/TeacherProtectedRoute.jsx
+// TeacherProtect.jsx
 import React from "react";
 import { Navigate } from "react-router-dom";
 
 const TeacherProtectedRoute = ({ children }) => {
   const username = sessionStorage.getItem("username");
-  const role = sessionStorage.getItem("role");
-
-  if (!username || role !== "teacher") {
+  if (!username || !username.startsWith("teacher-")) {
     return <Navigate to="/" replace />;
   }
-
   return children;
 };
 

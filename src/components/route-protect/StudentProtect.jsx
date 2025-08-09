@@ -1,14 +1,12 @@
+// StudentProtect.jsx
 import React from "react";
 import { Navigate } from "react-router-dom";
 
 const StudentProtectedRoute = ({ children }) => {
   const username = sessionStorage.getItem("username");
-  const role = sessionStorage.getItem("role");
-
-  if (!username || role !== "student") {
+  if (!username || !username.startsWith("student-")) {
     return <Navigate to="/" replace />;
   }
-
   return children;
 };
 

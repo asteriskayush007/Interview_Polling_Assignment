@@ -11,7 +11,7 @@ const StudentLandingPage = () => {
     e.preventDefault();
 
     if (name.trim()) {
-      sessionStorage.setItem("username", name);
+      sessionStorage.setItem("username", `student-${name}`); // Prefix "student-" added here
       sessionStorage.setItem("role", "student");
       navigate("/poll-question");
     } else {
